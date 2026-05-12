@@ -1,0 +1,45 @@
+.header {
+    height: 70px;
+    background-color:  #6ec1e4;
+    color: white;
+  
+    display: flex;
+    justify-content: flex-end; /* 👈 manda todo a la derecha */
+    align-items: center;
+  
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  
+  /* Logo */
+  .logo-header {
+    width: 50px;
+    height: auto;
+  }
+  
+  /* Título */
+  .header h1 {
+    font-size: 20px;
+  }
+
+  /* Contenedor general */
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Layout debajo del header */
+  .layout {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* Contenido */
+  .main {
+    flex: 1;
+    padding: 20px;
+    background: #f5f5f5;
+  }
+  

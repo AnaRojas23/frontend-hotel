@@ -1,0 +1,147 @@
+/* Fondo general igual a otras vistas */
+.contenido {
+  padding: 20px;
+}
+
+/* TARJETA BLANCA */
+.reserva-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* CONTENIDO INTERNO */
+.contenedor-reserva {
+  display: flex;
+  gap: 20px;
+}
+
+/* IZQUIERDA */
+.lado-izquierdo {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-pequena {
+  width: 80%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+/* DERECHA */
+.lado-derecho {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 centra todo */
+}
+
+/* CALENDARIO CENTRADO */
+.calendario {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+/* BOTÓN */
+.btn-reservar {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color:  #6ec1e4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.dia-ocupado {
+  background-color: #ff4d4d !important;
+  color: white !important;
+  border-radius: 50%;
+}
+.btn-modificar {
+  background-color: #28a745; /* verde */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancelar {
+  background-color: #dc3545; /* rojo */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.campo-documento {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-documento label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.campo-documento input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.campo-busqueda {
+  margin-bottom: 15px;
+  text-align: left; /* 👈 todo alineado a la izquierda */
+}
+
+.fila-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espacio entre input y botón */
+}
+
+.input-doc {
+  width: 180px;       /* 👈 más corto */
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-buscar {
+  padding: 4px 10px;  /* 👈 más pequeño */
+  font-size: 0.8rem;
+  border-radius: 4px;
+  background-color: #6ec1e4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: auto;        /* 👈 se ajusta al texto */
+}
+
+.btn-buscar:hover {
+  background-color:#6ec1e4;
+}
+.card .btn-checkout {
+  margin-top: 10px;    /* 👈 espacio extra si quieres separar aún más el segundo */
+}
+.card .btn-checkin {
+  margin-top: 10px;    /* 👈 espacio extra si quieres separar aún más el segundo */
+}

@@ -1,0 +1,81 @@
+.registrar-container {
+    height: 100vh;
+    background: linear-gradient(to bottom, #a8d8e8, #f5f5f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.registrar-card {
+  width: 350px; /* 🔥 más pequeño */
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.registrar-card h1 {
+  font-size: 22px; /* 🔥 más pequeño */
+  margin-bottom: 8px;
+}
+
+.registrar-card h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* menos espacio entre inputs */
+}
+
+.formulario input {
+  padding: 6px 10px; /* 🔥 más compacto */
+  font-size: 14px;
+}
+
+.formulario button {
+  margin-top: 12px;
+  padding: 8px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #0056b3;
+}
+
+.logo {
+  width: 80px; /* 🔥 más pequeño */
+  margin-bottom: 10px;
+}
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #555;             /* letra gris */
+  border: 1px solid #ccc;
+  border-radius: 4px;      /* borde redondo */
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* 🔥 Personalizar el select */
+.formulario select {
+  appearance: none;        /* quita estilos raros */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23555' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* flecha a la derecha */
+  background-size: 16px;
+  padding-right: 30px;     /* espacio para la flecha */
+}
