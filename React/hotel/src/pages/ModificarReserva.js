@@ -11,7 +11,7 @@ function ModificarReserva() {
   const navigate = useNavigate();
   const reserva = location.state;
   const habitacion = reserva?.habitacion;
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const [rangoFechas, setRangoFechas] = useState([
     new Date(reserva.fechaIngreso),
     new Date(reserva.fechaSalida),
@@ -27,7 +27,7 @@ function ModificarReserva() {
   useEffect(() => {
     if (habitacion) {
       axios
-        .get(`http://localhost:8080/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
+        .get(`${API_URL}/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
         .then((res) => {
           const fechas = res.data
             .map((f) => new Date(f))
@@ -68,7 +68,7 @@ function ModificarReserva() {
     };
 
     axios
-      .put(`http://localhost:8080/reservas/${reserva.id}`, reservaModificada)
+      .put(`${API_URL}/reservas/${reserva.id}`, reservaModificada)
       .then(() => {
         alert("Reserva modificada con éxito");
         if (tipo === "Recepcionista" ) {

@@ -21,16 +21,16 @@ function DashboardReportes() {
   const [ingresosMensual, setIngresosMensual] = useState([]);
   const [ingresosAnual, setIngresosAnual] = useState(0);
   const [huespedes, setHuespedes] = useState([]);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const cargarReporte = async (tipo) => {
     try {
       if (tipo === "ocupacion") {
-        const resDiaria = await axios.get("http://localhost:8080/reportes/ocupacion-diaria", {
+        const resDiaria = await axios.get("${API_URL}/reportes/ocupacion-diaria", {
           params: { inicio: `${anioSeleccionado}-01-01`, fin: `${anioSeleccionado}-12-31` }
         });
         setOcupacionDiaria(resDiaria.data);
 
-        const resSemanal = await axios.get("http://localhost:8080/reportes/ocupacion-semanal", {
+        const resSemanal = await axios.get("${API_URL}/reportes/ocupacion-semanal", {
           params: { inicio: `${anioSeleccionado}-01-01`, fin: `${anioSeleccionado}-12-31` }
         });
         setOcupacionSemanal(resSemanal.data);
@@ -39,12 +39,12 @@ function DashboardReportes() {
       }
 
       if (tipo === "ingresos") {
-        const resMensual = await axios.get("http://localhost:8080/reportes/ingresos-mensual", {
+        const resMensual = await axios.get("${API_URL}/reportes/ingresos-mensual", {
           params: { anio: anioSeleccionado }
         });
         setIngresosMensual(resMensual.data);
 
-        const resAnual = await axios.get("http://localhost:8080/reportes/ingresos-anual", {
+        const resAnual = await axios.get("${API_URL}/reportes/ingresos-anual", {
           params: { anio: anioSeleccionado }
         });
         setIngresosAnual(resAnual.data || 0);
@@ -53,7 +53,7 @@ function DashboardReportes() {
       }
 
       if (tipo === "huespedes") {
-        const resHuespedes = await axios.get("http://localhost:8080/reportes/huespedes", {
+        const resHuespedes = await axios.get("${API_URL}/reportes/huespedes", {
           params: { inicio: `${anioSeleccionado}-01-01`, fin: `${anioSeleccionado}-12-31` }
         });
         setHuespedes(resHuespedes.data);

@@ -10,7 +10,7 @@ function Habitaciones() {
   const navigate = useNavigate();
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const handleRedirect = (habitacion) => {
     if (tipo === "Huesped") {
       navigate("/homeHuesped/reservasHuesped", { state: habitacion });
@@ -22,11 +22,11 @@ function Habitaciones() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/habitaciones")
+    axios.get("${API_URL}/habitaciones")
       .then(res => setHabitaciones(res.data))
       .catch(err => console.error("Error habitaciones:", err));
 
-    axios.get("http://localhost:8080/reservas")
+    axios.get("${API_URL}/reservas")
       .then(res => setReservas(res.data))
       .catch(err => console.error("Error reservas:", err));
   }, []);

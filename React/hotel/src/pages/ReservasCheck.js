@@ -9,7 +9,7 @@ function ReservasCheck() {
   const [docHuesped, setDocHuesped] = useState(""); 
   const [huesped, setHuesped] = useState(null);     
   const navigate = useNavigate();
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
 
@@ -28,12 +28,12 @@ function ReservasCheck() {
     }
 
     try {
-      const resUsuario = await axios.get(`http://localhost:8080/usuarios/documento/${docHuesped}`);
+      const resUsuario = await axios.get(`${API_URL}/usuarios/documento/${docHuesped}`);
       const huespedEncontrado = resUsuario.data;
       setHuesped(huespedEncontrado);
 
       const usuarioId = huespedEncontrado.id || huespedEncontrado.idUsuario;
-      const resReservas = await axios.get(`http://localhost:8080/reservas/usuario/${usuarioId}`);
+      const resReservas = await axios.get(`${API_URL}/reservas/usuario/${usuarioId}`);
       const reservasConEstado = resReservas.data.map(r => ({
         ...r,
         estado: r.estado || "Pendiente",
@@ -129,7 +129,7 @@ function ReservasCheck() {
                       }
 
                       const response = await axios.get(
-                        `http://localhost:8080/check/checkin/${r.id}/pdf`,
+                        `${API_URL}/check/checkin/${r.id}/pdf`,
                         {
                           params: { metodoPago: r.metodoPago },
                           responseType: "blob"
@@ -169,7 +169,7 @@ function ReservasCheck() {
                   className="btn-checkout"
                   onClick={async () => {
                     try {
-                      const res = await axios.put(`http://localhost:8080/reservas/${r.id}/checkout`);
+                      const res = await axios.put(`${API_URL}/reservas/${r.id}/checkout`);
                       const nuevasReservas = [...reservas];
                       nuevasReservas[index] = res.data;
                       setReservas(nuevasReservas);

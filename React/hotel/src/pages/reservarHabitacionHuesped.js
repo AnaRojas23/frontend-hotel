@@ -14,12 +14,12 @@ function ReservarHabitacionHuesped() {
   const [fechaInicio, fechaFin] = rangoFechas;
   const [fechasOcupadas, setFechasOcupadas] = useState([]);
   const [total, setTotal] = useState(0);
-
+  const API_URL = process.env.REACT_APP_API_URL;
  
   useEffect(() => {
     if (habitacion) {
       axios
-        .get(`http://localhost:8080/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
+        .get(`${API_URL}/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
         .then((res) => {
           let todasFechas = [];
 
@@ -81,7 +81,7 @@ function ReservarHabitacionHuesped() {
     };
 
     axios
-      .post("http://localhost:8080/reservas", nuevaReserva)
+      .post("${API_URL}/reservas", nuevaReserva)
       .then(() => {
         alert("Reserva realizada con éxito");
         navigate("/homeHuesped/mis-reservas");

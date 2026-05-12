@@ -10,13 +10,13 @@ function IniciarSesion() {
 
   const navigate = useNavigate();
   const { setUser } = useUser(); 
-
+  const API_URL = process.env.REACT_APP_API_URL;
   // 🔥 FUNCIÓN LOGIN
   const handleLogin = (e) => {
     e.preventDefault(); // evita recarga
     console.log("Enviando login:", { usuario, contrasena });
 
-    axios.post("http://localhost:8080/usuarios/login-user", {
+    axios.post("${API_URL}/usuarios/login-user", {
       usuario,
       contrasena
     })

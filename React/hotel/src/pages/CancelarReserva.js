@@ -18,7 +18,7 @@ function CancelarReserva() {
 
   const fechaInicio = new Date(reserva.fechaIngreso);
   const fechaFin = new Date(reserva.fechaSalida);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const cancelarReserva = async () => {
     const hoy = new Date();
     const diferenciaDias = Math.ceil((fechaInicio - hoy) / (1000 * 60 * 60 * 24));
@@ -46,7 +46,7 @@ function CancelarReserva() {
       // 🔹 Generar PDF con multa ANTES de borrar la reserva
       if (multa > 0) {
         const response = await axios.post(
-          "http://localhost:8080/facturacion/pdf-cancelacion",
+          "${API_URL}/facturacion/pdf-cancelacion",
           { idReserva, multa },
           { responseType: "blob" }
         );
@@ -62,7 +62,7 @@ function CancelarReserva() {
       }
 
       // 🔹 Ahora sí borrar la reserva
-      await axios.delete(`http://localhost:8080/reservas/${idReserva}`);
+      await axios.delete(`${API_URL}/reservas/${idReserva}`);
 
       alert("Reserva cancelada con éxito");
       if (tipo === "Recepcionista") {

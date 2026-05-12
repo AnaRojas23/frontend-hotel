@@ -4,6 +4,7 @@ import "./registrar.css";
 import { useNavigate } from "react-router-dom";
 
 function Registrar() {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -46,7 +47,7 @@ function Registrar() {
     }
      console.log("Datos enviados:", formData);
     // Enviar datos al backend
-    axios.post("http://localhost:8080/usuarios/registrar", formData)
+    axios.post("${API_URL}/usuarios/registrar", formData)
       .then(res => {
         alert("Usuario registrado con éxito");
         console.log("Respuesta backend:", res.data);

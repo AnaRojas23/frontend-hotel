@@ -10,7 +10,7 @@ function ReservarHabitacionRecepcionista() {
   const location = useLocation();
   const navigate = useNavigate();
   const habitacion = location.state;
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const [rangoFechas, setRangoFechas] = useState([null, null]);
   const [fechaInicio, fechaFin] = rangoFechas;
   const [fechasOcupadas, setFechasOcupadas] = useState([]);
@@ -23,7 +23,7 @@ function ReservarHabitacionRecepcionista() {
   useEffect(() => {
     if (habitacion) {
       axios
-        .get(`http://localhost:8080/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
+        .get(`${API_URL}/reservas/fechas-ocupadas/${habitacion.idHabitacion}`)
         .then((res) => {
           const fechas = res.data.map((f) => new Date(f));
           setFechasOcupadas(fechas);
@@ -65,7 +65,7 @@ function ReservarHabitacionRecepcionista() {
       }
 
       try {
-        const res = await axios.get(`http://localhost:8080/usuarios/documento/${docHuesped}`);
+        const res = await axios.get(`${API_URL}/usuarios/documento/${docHuesped}`);
         usuarioReserva = res.data; 
       } catch (err) {
         alert("No se encontró huésped con ese documento");
@@ -82,7 +82,7 @@ function ReservarHabitacionRecepcionista() {
     };
 
     axios
-      .post("http://localhost:8080/reservas", nuevaReserva)
+      .post("${API_URL}/reservas", nuevaReserva)
       .then(() => {
         alert("Reserva realizada con éxito");
         navigate("/homeRecepcionista/mis-reservas");
