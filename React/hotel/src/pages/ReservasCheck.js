@@ -6,7 +6,7 @@ import { useUser } from "../UserContext";
 function ReservasCheck() {
   const [reservas, setReservas] = useState([]);
   const [docHuesped, setDocHuesped] = useState(""); 
-  const [ setHuesped] = useState([]);
+  const [ huesped, setHuesped] = useState([]);
   const API_URL = process.env.REACT_APP_API_URL;
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
