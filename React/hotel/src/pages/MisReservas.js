@@ -22,7 +22,7 @@ function MisReservas() {
     if (tipo === "Huesped") {
       const usuarioId = user.id || user.idUsuario;
       axios
-        .get(`http://localhost:8080/reservas/usuario/${usuarioId}`)
+        .get(`${API_URL}/reservas/usuario/${usuarioId}`)
         .then((res) => setReservas(res.data))
         .catch((err) => {
           console.error("Error al obtener reservas:", err);
@@ -38,12 +38,12 @@ function MisReservas() {
     }
 
     try {
-      const resUsuario = await axios.get(`http://localhost:8080/usuarios/documento/${docHuesped}`);
+      const resUsuario = await axios.get(`${API_URL}/usuarios/documento/${docHuesped}`);
       const huespedEncontrado = resUsuario.data;
       setHuesped(huespedEncontrado);
 
       const usuarioId = huespedEncontrado.id || huespedEncontrado.idUsuario;
-      const resReservas = await axios.get(`http://localhost:8080/reservas/usuario/${usuarioId}`);
+      const resReservas = await axios.get(`${API_URL}/reservas/usuario/${usuarioId}`);
       setReservas(resReservas.data);
     } catch (err) {
       console.error("Error al buscar reservas:", err);
