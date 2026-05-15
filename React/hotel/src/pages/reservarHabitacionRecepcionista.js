@@ -82,7 +82,7 @@ function ReservarHabitacionRecepcionista() {
     };
 
     axios
-      .post("${API_URL}/reservas', nuevaReserva)
+      .post('${API_URL}/reservas', nuevaReserva)
       .then(() => {
         alert("Reserva realizada con éxito");
         navigate("/homeRecepcionista/mis-reservas");
