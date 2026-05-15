@@ -8,7 +8,6 @@ import { useUser } from "../UserContext";
 
 function ReservarHabitacionRecepcionista() {
   const location = useLocation();
-  const navigate = useNavigate();
   const habitacion = location.state;
   const API_URL = process.env.REACT_APP_API_URL;
   const [rangoFechas, setRangoFechas] = useState([null, null]);
@@ -30,7 +29,7 @@ function ReservarHabitacionRecepcionista() {
         })
         .catch((err) => console.error("Error fechas ocupadas:", err));
     }
-  }, [habitacion]);
+  }, [habitacion,API_URL]);
 
   useEffect(() => {
     if (fechaInicio && fechaFin && habitacion) {
@@ -82,7 +81,7 @@ function ReservarHabitacionRecepcionista() {
     };
 
     axios
-      .post('${API_URL}/reservas', nuevaReserva)
+      .post(`${API_URL}/reservas`, nuevaReserva)
       .then(() => {
         alert("Reserva realizada con éxito");
         navigate("/homeRecepcionista/mis-reservas");
