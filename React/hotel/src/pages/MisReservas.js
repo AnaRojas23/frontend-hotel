@@ -29,7 +29,7 @@ function MisReservas() {
           alert("Error al obtener reservas, revisa la consola");
         });
     }
-  }, [user, tipo]);
+  }, [user, tipo,API_URL]);
 
   const buscarReservasPorDocumento = async () => {
     if (!docHuesped) {
