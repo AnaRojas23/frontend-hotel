@@ -36,7 +36,7 @@ function ReservarHabitacionHuesped() {
         })
         .catch((err) => console.error("Error fechas ocupadas:", err));
     }
-  }, [habitacion]);
+  }, [habitacion,API_URL]);
 
   
   useEffect(() => {
@@ -81,7 +81,7 @@ function ReservarHabitacionHuesped() {
     };
 
     axios
-      .post("${API_URL}/reservas", nuevaReserva)
+      .post(`${API_URL}/reservas`, nuevaReserva)
       .then(() => {
         alert("Reserva realizada con éxito");
         navigate("/homeHuesped/mis-reservas");
