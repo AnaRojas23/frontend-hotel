@@ -9,6 +9,7 @@ import { useUser } from "../UserContext";
 function ReservarHabitacionRecepcionista() {
   const location = useLocation();
   const habitacion = location.state;
+  const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
   const [rangoFechas, setRangoFechas] = useState([null, null]);
   const [fechaInicio, fechaFin] = rangoFechas;
