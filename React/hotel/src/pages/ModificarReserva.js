@@ -40,7 +40,7 @@ function ModificarReserva() {
         })
         .catch((err) => console.error(err));
     }
-  }, [habitacion, reserva]);
+  }, [habitacion, reserva,API_URL]);
 
   useEffect(() => {
     if (fechaInicio && fechaFin && habitacion) {
