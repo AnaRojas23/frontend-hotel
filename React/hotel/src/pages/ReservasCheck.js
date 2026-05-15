@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "./Reservas.css";
 import { useUser } from "../UserContext";
 
 function ReservasCheck() {
   const [reservas, setReservas] = useState([]);
   const [docHuesped, setDocHuesped] = useState(""); 
-  const [huesped, setHuesped] = useState([]);
+  const [ setHuesped] = useState([]);
   const API_URL = process.env.REACT_APP_API_URL;
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
