@@ -46,7 +46,7 @@ function CancelarReserva() {
       // 🔹 Generar PDF con multa ANTES de borrar la reserva
       if (multa > 0) {
         const response = await axios.post(
-          "${API_URL}/facturacion/pdf-cancelacion",
+          `${API_URL}/facturacion/pdf-cancelacion`,
           { idReserva, multa },
           { responseType: "blob" }
         );
