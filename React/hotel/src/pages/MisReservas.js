@@ -9,7 +9,7 @@ function MisReservas() {
   const [docHuesped, setDocHuesped] = useState("");
   const [huesped, setHuesped] = useState(null);
   const navigate = useNavigate();
- const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
 
