@@ -8,7 +8,7 @@ function Login() {
       <div className="login-container">
        
         <div className="login-card">
-        <img src="/LogoHotel.png" className="logo" />
+        <img  src="/LogoHotel.png" alt="Logo del hotel"className="logo" />
           <h1>ROYALBLUE</h1>
           <h2>Resort</h2>
   
