@@ -22,14 +22,14 @@ function Habitaciones() {
   };
 
   useEffect(() => {
-    axios.get("${API_URL}/habitaciones")
+    axios.get(`${API_URL}/habitaciones`)
       .then(res => setHabitaciones(res.data))
       .catch(err => console.error("Error habitaciones:", err));
 
-    axios.get("${API_URL}/reservas")
+    axios.get(`${API_URL}/reservas`)
       .then(res => setReservas(res.data))
       .catch(err => console.error("Error reservas:", err));
-  }, []);
+  }, [API_URL]);
 
   // 🔥 validar si está ocupada HOY
   const estaOcupadaHoy = (idHabitacion) => {
