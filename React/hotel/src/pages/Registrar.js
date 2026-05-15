@@ -47,7 +47,7 @@ function Registrar() {
     }
      console.log("Datos enviados:", formData);
     // Enviar datos al backend
-    axios.post("${API_URL}/usuarios/registrar", formData)
+    axios.post(`${API_URL}/usuarios/registrar`, formData)
       .then(res => {
         alert("Usuario registrado con éxito");
         console.log("Respuesta backend:", res.data);
