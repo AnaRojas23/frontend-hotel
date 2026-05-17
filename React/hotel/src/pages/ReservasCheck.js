@@ -10,7 +10,7 @@ function ReservasCheck() {
   const API_URL = process.env.REACT_APP_API_URL;
   const { user } = useUser();
   const tipo = user?.tipoUsuario || user?.tipo_usuario;
-
+console.log("Huésped encontrado:", huesped);
   useEffect(() => {
     if (!user) {
       alert("No hay usuario logueado");
